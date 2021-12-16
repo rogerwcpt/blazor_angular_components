@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -27,9 +28,13 @@ export class {1}Component extends BlazorAdapterComponent {{{2}
 
         public static void Write(string outputDirectory, RazorComponentDescriptor componentDescriptor)
         {
-            var jsTypeNames = componentDescriptor.Parameters
-                .Select(p => GetJavaScriptTypeName(p.TypeName))
-                .ToArray();
+            var jsTypeNames = Array.Empty<string>();
+            if (componentDescriptor.Parameters != null)
+            {
+                jsTypeNames = componentDescriptor.Parameters
+                    .Select(p => GetJavaScriptTypeName(p.TypeName))
+                    .ToArray();
+            }
 
             var angularComponentName = CasingUtilities.ToKebabCase(componentDescriptor.Name);
             var propertyList = GetPropertyList(componentDescriptor.Parameters, jsTypeNames);
@@ -44,6 +49,10 @@ export class {1}Component extends BlazorAdapterComponent {{{2}
 
         private static string GetPropertyList(IReadOnlyList<BoundAttributeDescriptor> parameters, string[] jsTypeNames)
         {
+            if (parameters == null)
+            {
+                return string.Empty;
+            }
             Debug.Assert(parameters.Count == jsTypeNames.Length);
 
             var stringBuilder = new StringBuilder();
