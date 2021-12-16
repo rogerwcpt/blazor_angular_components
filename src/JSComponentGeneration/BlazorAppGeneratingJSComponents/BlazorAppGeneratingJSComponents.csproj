@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JSComponentGeneration.Build\JSComponentGeneration.Build.csproj" />
     <ProjectReference Include="..\JSComponentGeneration\JSComponentGeneration.csproj" />
   </ItemGroup>
 
