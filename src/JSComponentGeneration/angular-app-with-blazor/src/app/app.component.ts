@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   template: `
     <div class="content">
       <h1>Welcome to {{title}}!</h1>
-      <p>This is an Angular application that can also host Blazor components.</p>
+      <p>This is an Angular application that can also host Blazor component.</p>
+      <dummy [title]="title"></dummy>
       <p>
         <button (click)="addBlazorCounter()">Add Blazor counter</button>
         <button (click)="removeBlazorCounter()">Remove Blazor counter</button>
@@ -13,6 +14,7 @@ import { Component } from '@angular/core';
       </p>
 
       <div *ngFor="let counter of blazorCounters">
+       <dummy [title]="counter.title"></dummy>
         <counter
           [title]="counter.title"
           [incrementAmount]="counter.incrementAmount"
