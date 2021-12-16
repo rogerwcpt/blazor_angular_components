@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
       <h1>Welcome to {{title}}!</h1>
       <p>This is an Angular application that can also host Blazor component.</p>
       <dummy [title]="title"></dummy>
-      <vanilla [title]="title"></vanilla>
       <p>
         <button (click)="addBlazorCounter()">Add Blazor counter</button>
         <button (click)="removeBlazorCounter()">Remove Blazor counter</button>

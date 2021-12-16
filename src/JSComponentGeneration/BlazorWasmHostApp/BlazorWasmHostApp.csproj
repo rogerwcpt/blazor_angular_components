@@ -17,4 +17,5 @@
       <ProjectReference Include="..\JSComponentGeneration\JSComponentGeneration.csproj" />
     </ItemGroup>
 
+    <Import Project="..\JSComponentGeneration.Build\build\netstandard2.0\JSComponentGeneration.build.targets" />
 </Project>

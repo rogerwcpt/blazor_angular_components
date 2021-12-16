@@ -9,6 +9,17 @@ This sample was duplicated from the aspnet [samples repo](https://github.com/asp
 I could only get this working with angular v12.  If you are using Node Version Manager (nvm), then set your version of angular to version 12 like this
 * `nvm use v12`
 
+This target it required for automatic code generation within your blazor csproj:
+```xml
+    <Import Project="..\JSComponentGeneration.Build\build\netstandard2.0\JSComponentGeneration.build.targets" />
+```
+
+Modify the `JavaScriptComponentOutputDirectory` in JSComponentGeneration.Build to match the angular project
+```xml
+  <Target Name="GenerateJavaScriptComponents" AfterTargets="CopyFilesToOutputDirectory" DependsOnTargets="HackRazorSdk;ResolveTagHelperRazorGenerateInputs">
+    <GenerateAngularComponents OutputPath="$(OutputPath)" IntermediateOutputPath="$(IntermediateOutputPath)" AssemblyName="$(AssemblyName)" JavaScriptComponentOutputDirectory="..\angular-app-with-blazor\src\app" />
+  </Target>
+```
 
 ## Running the Angular sample
 

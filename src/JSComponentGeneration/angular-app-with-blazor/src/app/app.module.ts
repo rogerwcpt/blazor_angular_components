@@ -4,15 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { DummyComponent } from './dummy/dummy.component';
-import { VanillaComponent } from './vanilla/vanilla.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
-    DummyComponent,
-    VanillaComponent
+    DummyComponent
   ],
   imports: [
     BrowserModule
