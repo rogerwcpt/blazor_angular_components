@@ -1,17 +1,28 @@
 # JavaScript Component Generation
 
-This sample demonstates how Blazor components can be automatically wrapped as components in JavaScript-based SPA frameworks like Angular and React.
+This sample demonstrates how Blazor components can be automatically wrapped as components in JavaScript-based SPA frameworks like Angular and React.
+
+This sample was duplicated from the aspnet [samples repo](https://github.com/aspnet/samples.git), more specifically this project [JavaScript Component Generation](https://github.com/aspnet/samples/tree/main/samples/aspnetcore/blazor/JSComponentGeneration)
+
+## Prerequisites
+
+I could only get this working with angular v12.  If you are using Node Version Manager (nvm), then set your version of angular to version 12 like this
+* `nvm use v12`
+
 
 ## Running the Angular sample
 
 Clone this repo. Then, in a command prompt, execute:
 
  * `cd BlazorAppGeneratingJSComponents`
- * `dotnet watch`
+ * `nvm use v12`  (optional if you only have Angular v12 currently installed)
+ * `dotnet build`
+ * `dotnet run`
 
 Leave that running, and open a second command prompt, and execute:
 
  * `cd angular-app-with-blazor`
+ * `nvm use v12`  (optional if you only have Angular v12 currently installed)
  * `npm install`
  * `npm start`
 
